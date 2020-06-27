@@ -1,7 +1,7 @@
 # A simple node
 class Node:
     # Create initialize node
-    def __init__(self, value, next_node):
+    def __init__(self, value, next_node=None):
         self.next = next_node
         self.data = value
     
@@ -32,8 +32,13 @@ class LinkedList:
     def insert_mid(self):
         pass
 
-    def append(self):
-        pass
+    def append(self, data):
+        if self.head == None:
+            self.head = Node(data, None)
+            self.tail = self.head
+        else:
+            self.tail.next = Node(data, None)
+
 
     def delete(self):
         pass
@@ -48,22 +53,17 @@ class LinkedList:
         while(self.head != None):
             print(self.head.data)
             self.head = self.head.next
-        if (self.head == None):
-            print("Emptied linkedlist")
 
 first_node = 45
-
-midle_node = 5
-
+second_node = 5
 third_node = {"name": "wilfred"}
+fourth_node = [2,5,6]
+last_node = (456,12,66)
 
-last_node = Node(56, None)
 linkedlist = LinkedList()
 linkedlist.insert(first_node)
-linkedlist.insert(midle_node)
+linkedlist.insert(second_node)
 linkedlist.insert(third_node)
-
-
-
-print(linkedlist.get_size())
+linkedlist.append(last_node)
+linkedlist.insert(first_node)
 linkedlist.print_list()
